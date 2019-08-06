@@ -38,7 +38,7 @@ int main()
 		//c语言中 叫结构，c++中叫类
 		//c语言中我们定义一个结构变量，在c++中，我们不叫结构变量，我们就叫他对象
 	/*	struct student
-		{
+		{ot
 			char name[100];
 			int number;
 		};
