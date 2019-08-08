@@ -1,0 +1,3 @@
+﻿  basic_5.cpp
+e:\ch\c++_study\c++认真学习\static\basic\basic_5\basic_5.cpp(33): warning C4172: 返回局部变量或临时变量的地址: temvalue
+  basic_5.vcxproj -> E:\ch\C++_study\C++认真学习\Static\basic\x64\Debug\basic_5.exe
