@@ -1,0 +1,10 @@
+﻿  pch.cpp
+  class_3.cpp
+  Time.cpp
+e:\ch\c++_study\c++认真学习\static\basic\class_3\time.cpp(31): error C2789: “Time::ctestvalue”: 必须初始化常量限定类型的对象
+  e:\ch\c++_study\c++认真学习\static\basic\class_3\time.h(10): note: 参见“Time::ctestvalue”的声明
+e:\ch\c++_study\c++认真学习\static\basic\class_3\time.cpp(36): error C2789: “Time::ctestvalue”: 必须初始化常量限定类型的对象
+  e:\ch\c++_study\c++认真学习\static\basic\class_3\time.h(10): note: 参见“Time::ctestvalue”的声明
+e:\ch\c++_study\c++认真学习\static\basic\class_3\time.cpp(41): error C2789: “Time::ctestvalue”: 必须初始化常量限定类型的对象
+  e:\ch\c++_study\c++认真学习\static\basic\class_3\time.h(10): note: 参见“Time::ctestvalue”的声明
+  正在生成代码...

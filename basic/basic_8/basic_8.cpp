@@ -1,0 +1,204 @@
+﻿// basic_8.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
+
+#include "pch.h"
+#include <iostream>
+#include <vector>
+#include <set>
+
+
+struct Student
+{
+	int num;
+};
+
+struct conf
+{
+	char iterName[40];
+	char itercontent[100];
+};
+
+char *getInfo(std::vector<conf *> &conflist, const char *pitem)
+{
+	for (auto pos = conflist.begin(); pos != conflist.end(); pos++)
+	{
+		if (_stricmp((*pos)->iterName, pitem) == 0)
+		{
+			return (*pos)->itercontent;
+		}
+	}
+	return nullptr;
+}
+
+int main()
+{
+	//一 迭代器简介
+	//迭代器是一种遍历容器内元素的数据类型，这种数据类型感觉有点像指针，我们理解的时候就理解为迭代器用来只想容器中的某个元素
+	//string, vector,[] ，很少用[]，更常用的访问方式就是用迭代器(更通用)
+	//通过迭代器，我们就可以读容器中的元素值，还可以修改某个迭代器所指向的元素值
+	//++ --
+	//list,map 尽量学会用迭代器访问容器中的元素
+
+	//二 容器的迭代器类型
+	//std::vector<int> iv = { 100, 200,300 };
+	//std::vector<int>::iterator iter; //定义迭代器，也必须是vector<int>
+
+	//大家在理解的时候，就把这个的std::vector<int>::iterator 理解成一个类型，这种类型就专门应用于迭代器
+	//当我们用这个类型定义一个变量的时候，这个变量，就是个迭代器
+
+	//三 迭代器begin()/end()操作，反向迭代器rbegin()/rend()操作
+	//begin()/end()用来 返回 迭代类型。 rbegin()/rend()用来 返回 迭代类型
+	//（a）begin() 返回一个迭代器类型（理解为返回一个迭代器）
+	//iter = iv.begin(); //如果容器中有元素，则begin()返回的迭代器，指向的是容器中的第一个元素
+
+	////（b）end() 返回一个迭代器类型
+	//iter = iv.end(); //end返回的迭代器指向的并不是末端元素，而是末端元素的后面（指向一个不存在的元素）
+
+	//（c）如果一个容器为空，那么begin()和end()返回的迭代器就相同
+	std::vector<int> iv2;
+	std::vector<int>::iterator iterBegin = iv2.begin();
+	std::vector<int>::iterator iterEnd = iv2.end();
+	if (iterBegin == iterEnd)
+	{
+		std::cout << "容器为null" << std::endl;
+	}
+
+	//（d）常规方法
+	std::vector<int> iv = { 100, 200,300 };
+	for (std::vector<int>::iterator iter = iv.begin(); iter != iv.end(); iter++)
+	{
+		std::cout << *iter << std::endl;
+	}
+
+	//反向迭代器：大家想从后往前遍历一个容器，那么反向迭代器比较方便
+	//rbegin() / rend()用来 返回 迭代类型
+	//rbegin() ： 返回一个反向迭代器，指向反向迭代器的第一个元素
+	//rend() ： 返回一个反向迭代器，指向反向迭代器的最后一个元素的下一个位置
+	//for (std::vector<int>::reverse_iterator riter = iv.rbegin(); riter != iv.rend(); riter++)
+	//{
+	//	std::cout << *(riter.base()-1) << std::endl; //300 200 100
+	//}
+	//auto it = iv.end() - 1;
+	//iv.erase(it);
+
+	//四 迭代器运算符
+	//（a）: *iter 返回迭代器iter所指向元素的引用。必须要保证这个迭代器指向的是有效的元素
+	//（b）++iter ,iter++ 让迭代器指向容器中下一个元素；已经指向end()的时候不能再++
+	//（c）--iter; iter--;让迭代器指向容器中上一个元素；指向开头元素，就不能再--
+	//（d）iter! == iter2;iter1 != iter2 判断两个迭代器是否相等
+	// 如果两个迭代器指向的是同一个元素，就相等，否则就不等
+	//（e）如何引用结构中的成员 (*iter).num / iter->num
+		
+	//五 const_iterator迭代器，const：常量
+	//const_iterator迭代器，表示值不能改变的意思，这里的值不用改变表示这个迭代器指向元素的值不能改变
+	//而不是表示这个迭代器本身不能改变，也就是说，迭代器本身是可以不断指向下一个元素的
+	//只能从容器红读元素，不能通过这个迭代器改写容器中的元素
+	//iterator是能读能写
+
+	//5.1 cbegin()和cend()操作
+	//c++11引入的两个新函数cbegin()，cend()，跟begin,end类似，返回的都是常量迭代器
+	//for (auto iter = iv.cbegin(); iter != iv.cend(); iter++)
+	//{
+	//	//*iter = 4; //报错，不能给常量赋值。
+	//}
+	//std::set<int> ss = { 1,2,3 };
+
+
+	//六 迭代器失效
+	std::vector<int> vecvalue = { 1, 2,3,4,5 };
+	for (auto vecitem : vecvalue)
+	{
+		vecvalue.push_back(888); //不行，会乱，会出大问题
+		std::cout << vecitem << std::endl;
+	}
+
+	for (auto beg = vecvalue.begin(); beg != vecvalue.end(); beg++)
+	{
+		vecvalue.push_back(888); //不行，会乱，会出大问题
+		std::cout << *beg << std::endl;
+	}
+
+	//在操作迭代器的过程汇总（使用了迭代器这种循环体），千万不要改变vector容量，也就是不要增加或者删除vector容器中的元素
+	//在容器中增加或者从容器中删除元素，这些操作可能会使指向容器元素的指针，引用，迭代器失效
+	//失效就表示不能再代表容器中的任何元素。一旦使用失效的东西，很多情况下，程序会直接崩溃
+
+	//如果非要这么干
+	for (auto beg = vecvalue.begin(); beg != vecvalue.end(); beg++)
+	{
+		vecvalue.push_back(888); //不行，会乱，会出大问题
+		break;
+	}
+	for (auto beg = vecvalue.begin(); beg != vecvalue.end(); beg++)
+	{
+		
+	}
+
+	//（6.1）灾难程序演示1
+	std::vector<int> vecvalue = { 1, 2,3,4,5 };
+	auto beg = vecvalue.begin();
+	auto end = vecvalue.end();
+	while (beg != end)
+	{
+		std::cout << *beg << std::endl;
+		//想往beg这个位置插入新值，可以用 insert
+		vecvalue.insert(beg, 80); //这已插入，肯定会导致迭代器失效
+									//最明智的做法，就是只要一插入新值，就break出循环体
+		break;
+		beg++;
+	}
+
+	//（6.1）灾难程序演示2
+	//std::vector<int> iv = { 100, 200 ,300 };
+	
+	//不可行
+	//for (auto iter = iv.begin(); iter != iv.end(); iter++)
+	//{
+	//	iv.erase(iter); //erase函数，移出iter位置上的函数，返回下一个元素位置
+	//}
+
+	//可以删除所有
+	//auto iter = iv.begin();
+	//while (iter != iv.end())
+	//{
+	//	iter = iv.erase(iter);
+	//}
+
+	//可以删除所有
+	/*while (!iv.empty())
+	{
+		auto iter = iv.begin();
+		iv.erase(iter);
+	}*/
+
+	//七 范例演示
+	//serverName = 1区
+	//serverId = 100000
+	conf *pconf1 = new conf;
+	strcpy_s(pconf1->iterName, sizeof(pconf1->iterName), "ServerName");
+	strcpy_s(pconf1->itercontent, sizeof(pconf1->itercontent), "1区");
+
+	conf *pconf2 = new conf;
+	strcpy_s(pconf2->iterName, sizeof(pconf2->iterName), "ServerID");
+	strcpy_s(pconf2->itercontent, sizeof(pconf2->itercontent), "100000");
+
+	std::vector<conf *> conflist;
+
+	conflist.push_back(pconf1);
+	conflist.push_back(pconf2);
+
+	char *p_tmp = getInfo(conflist, "ServerName");
+	if (p_tmp)
+	{
+		std::cout << p_tmp << std::endl;
+	}
+
+	//我们要释放内存 ，自己new就要自己释放，否则就会造成内存泄露
+	for (auto pos = conflist.begin(); pos != conflist.end(); pos++)
+	{
+		delete (*pos);
+	}
+
+	conflist.clear(); //这个要不要都行
+    std::cout << "Hello World!\n"; 
+}
+
