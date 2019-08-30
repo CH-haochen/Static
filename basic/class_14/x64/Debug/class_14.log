@@ -1,0 +1,3 @@
+﻿  class_14.cpp
+e:\ch\c++_study\c++认真学习\static\basic\class_14\class_14.cpp(135): error C2011: “A”:“class”类型重定义
+  e:\ch\c++_study\c++认真学习\static\basic\class_14\class_14.cpp(64): note: 参见“A”的声明
