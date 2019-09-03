@@ -1,0 +1,4 @@
+﻿  pch.cpp
+  template_2.cpp
+e:\ch\c++_study\c++认真学习\static\basic\template_2\template_2.cpp(46): warning C4101: “tmparray2”: 未引用的局部变量
+  template_2.vcxproj -> E:\ch\C++_study\C++认真学习\Static\basic\x64\Debug\template_2.exe

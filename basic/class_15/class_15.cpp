@@ -171,5 +171,12 @@ int main()
 	//这种指向静态成员变量的指针，是有真正的内存地址的
 	int *stcp = &CT::m_stca; //定义一个静态成员变量指针
 	*stcp = 798; //等价于CT::m_stca = 798
-    std::cout << "Hello World!\n"; 
+    
+	
+	//六 总结
+	//
+	
+	std::cout << "Hello World!\n"; 
+
+
 }
