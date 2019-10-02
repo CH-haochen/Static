@@ -16,7 +16,7 @@ public:
 
 int main()
 {
-
+	//一 直接管理内存 new/delete
 	//概念“值初始化”：用()来初始化
 	std::string *mystr2 = new std::string;
 	std::string *mystr3 = new std::string(); //也是空字符串，和mystr没区别
@@ -46,6 +46,8 @@ int main()
 	//（2）delete后的内存不能再使用，否则异常 
 	//（3）提倡delete一个指针后，给该指针一个nullptr
 	//（4）同一块内存释放两次的问题，也会报异常
+
+	
 
     std::cout << "Hello World!\n"; 
 }
