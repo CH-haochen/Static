@@ -111,7 +111,7 @@ int main()
 	//2.11 转换成shared_ptr类型
 	//如果unique_ptr为右值，就可以将它赋值给shared_ptr
 	//因为shared_ptr包含一个显式构造函数，可用于将右值unique_ptr转换为shared_ptr，shared_ptr将接管原来unqie_ptr所拥有的对象
-	//shared_ptr<string> pss1 = myfunc();
+	shared_ptr<string> pss1 = myfunc();
 
 	unique_ptr<string> ps(new string("I love China"));
 	shared_ptr<string> pss1 = std::move(ps);

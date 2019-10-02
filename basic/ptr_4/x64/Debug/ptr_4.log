@@ -1,0 +1,16 @@
+﻿  pch.cpp
+  ptr_4.cpp
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(26): error C2086: “std::weak_ptr<int> piw”: 重定义
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(24): note: 参见“piw”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(46): error C2371: “pi”: 重定义；不同的基类型
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(23): note: 参见“pi”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(47): error C2371: “pi2”: 重定义；不同的基类型
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(35): note: 参见“pi2”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(48): error C2374: “piw”: 重定义；多次初始化
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(24): note: 参见“piw”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(88): error C2086: “std::weak_ptr<int> pw”: 重定义
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(67): note: 参见“pw”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(93): error C2371: “pi”: 重定义；不同的基类型
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(23): note: 参见“pi”的声明
+e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(94): error C2374: “piw”: 重定义；多次初始化
+  e:\ch\c++_study\c++认真学习\static\basic\ptr_4\ptr_4.cpp(24): note: 参见“piw”的声明
