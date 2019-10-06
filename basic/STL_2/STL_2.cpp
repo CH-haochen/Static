@@ -32,6 +32,7 @@ int main()
 	//vector容器内存也是挨着的，vector容器有一个“空间”的概念，每一个空间可以装一个元素
 	//容器里有多少个元素可以用size()来看，而这个容器里有多少个空间，可以用capacity()
 	//capacity()一定不会小于size(),vector容器中空间的数量一定不会小于元素的数量
+	
 	//用reverse可以预留空间，前提是你预先知道这个容器最多会容纳多少个元素
 
 	std::vector<A> myveca;
