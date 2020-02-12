@@ -1,0 +1,7 @@
+﻿  pch.cpp
+  STL_7.cpp
+e:\ch\c++_study\c++认真学习\static\basic\stl_7\stl_7.cpp(39): error C2374: “myvector”: 重定义；多次初始化
+  e:\ch\c++_study\c++认真学习\static\basic\stl_7\stl_7.cpp(26): note: 参见“myvector”的声明
+e:\ch\c++_study\c++认真学习\static\basic\stl_7\stl_7.cpp(42): error C2672: “std::sort”: 未找到匹配的重载函数
+e:\ch\c++_study\c++认真学习\static\basic\stl_7\stl_7.cpp(42): error C2780: “void std::sort(const _RanIt,const _RanIt,_Pr)”: 应输入 3 个参数，却提供了 2 个
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(4029): note: 参见“std::sort”的声明
